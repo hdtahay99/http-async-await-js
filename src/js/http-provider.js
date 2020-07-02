@@ -1,6 +1,10 @@
 const jokeUrl     = 'https://api.chucknorris.io/jokes/random';
 const urlUsuarios =  'https://reqres.in/api/users?page=2';
 
+//CloudDinary
+const cloudPreset = 'pl08tqzc';
+const cloudUrl    = 'https://api.cloudinary.com/v1_1/dxycp1ofq/upload';
+
 // fetch(jokeUrl).then((response) => {
 
 //     response.json().then( (data) => {
@@ -46,7 +50,35 @@ const obtenerUsuarios = async() => {
     return usuarios;
 };
 
+
+const subirImage =async(archivoSubir) => {
+
+    const formData = new FormData();
+    formData.append('upload_preset', cloudPreset);
+    formData.append('file', archivoSubir);
+
+    try {
+
+        const response = await fetch(cloudUrl, {
+            method: 'POST',
+            body: formData 
+        });
+
+        if(response.ok){
+            const cloudResponse = await response.json();
+            return await cloudResponse.secure_url;
+        } else {
+            throw await response.json();
+        }
+        
+    } catch (error) {
+        throw error;
+    }
+
+};
+
 export {
     obtenerChiste,
     obtenerUsuarios,
+    subirImage,
 }

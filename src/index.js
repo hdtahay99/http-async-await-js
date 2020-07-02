@@ -7,19 +7,22 @@
 
 // init();
 
-import * as CRUD  from './js/crud-provider';
+// import * as CRUD  from './js/crud-provider';
 
 
-CRUD.getUsuario(2).then(console.log);
-CRUD.postUsuario({
-    name: 'Heansell',
-    job: 'Engineer'
-}).then(console.log);
+// CRUD.getUsuario(2).then(console.log);
+// CRUD.postUsuario({
+//     name: 'Heansell',
+//     job: 'Engineer'
+// }).then(console.log);
 
-CRUD.putUsuario({
-    id: 2,
-    name: 'Heansell',
-    job: 'Engineer'
-}).then(console.log);
+// CRUD.putUsuario({
+//     id: 2,
+//     name: 'Heansell',
+//     job: 'Engineer'
+// }).then(console.log);
 
-CRUD.deleteUsuario(100).then(console.log);
+// CRUD.deleteUsuario(100).then(console.log);
+
+import {init} from './js/archivos-page';
+init();
